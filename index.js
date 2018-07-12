@@ -5,6 +5,9 @@ export async function init() {
   await root.set({
     sites: {},
   });
+
+  program.state.formWebhooks = {};
+  await program.save();
 }
 
 export async function test({ name }) {
@@ -47,7 +50,7 @@ export async function endpoint({ name, req }) {
 
 export const SiteCollection = {
   async one({ args }) {
-    return webflow.sites({ siteId: args.id });
+    return webflow.site({ siteId: args.id });
   },
 
   async items() {
@@ -72,20 +75,24 @@ export const Site = {
     return {};
   },
   formReceived: {
-    subscribe({ self }) {
+    async subscribe({ self }) {
       const { id } = self.match(root.sites.one());
 
       // https://developers.webflow.com/#trigger-types
-      return webflow.createWebhook({
+      const result = await webflow.createWebhook({
         siteId: id,
         triggerType: 'form_submission',
         url: `${program.endpoints.webhooks.url}`,
       });
+
+      // Store the webhook id so that we can later unsubscribe
+      program.state.formWebhooks[id] = result._id;
+      await program.save();
     },
-    unsubscribe({ self , args }) {     
-      // use args or self.match() ?
-      const { id } = self.match(root.sites.one());
-      return webflow.removeWebhook({ siteId: id, webhookId: args.id })
+    unsubscribe({ self }) {     
+      const { id: siteId } = self.match(root.sites.one());
+      const webhookId = program.state.formWebhooks[siteId];
+      return webflow.removeWebhook({ siteId, webhookId })
     }
   },
 };

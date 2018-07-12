@@ -1,134 +1,134 @@
 {
- "dependencies": [],
- "environment": [
-  {
-   "name": "API_TOKEN",
-   "description": "The Api Token"
-  }
- ],
- "endpoints": [
-  {
-   "name": "webhooks",
-   "type": "https",
-   "description": "Webhooks received from Webflow",
-   "options": {}
-  }
- ],
- "schema": {
-  "imports": [],
-  "types": [
-   {
-    "name": "Root",
-    "fields": [
-     {
-      "name": "sites",
-      "type": "SiteCollection"
-     }
-    ],
-    "computedFields": [],
-    "actions": [],
-    "events": []
-   },
-   {
-    "name": "SiteCollection",
-    "fields": [],
-    "computedFields": [
-     {
-      "name": "one",
-      "type": "Site",
-      "description": "A Webflow site",
-      "params": [
-       {
-        "name": "id",
-        "type": "String"
-       }
-      ]
-     },
-     {
-      "name": "items",
-      "type": "List",
-      "ofType": {
-       "type": "Site"
-      },
-      "description": "List of all sites the provided access token is able to access."
-     }
-    ],
-    "actions": [],
-    "events": []
-   },
-   {
-    "name": "Site",
-    "fields": [
-     {
-      "name": "createdOn",
-      "type": "String",
-      "description": "Date the site was created"
-     },
-     {
-      "name": "name",
-      "type": "String",
-      "description": "Name given to site"
-     },
-     {
-      "name": "shortName",
-      "type": "String",
-      "description": "Slugified version of name"
-     },
-     {
-      "name": "lastPublished",
-      "type": "String",
-      "description": "Date site was last published"
-     },
-     {
-      "name": "previewUrl",
-      "type": "String",
-      "description": "URL of a generated image for the given site"
-     },
-     {
-      "name": "timezone",
-      "type": "String",
-      "description": "Site timezone set under Site Settings"
-     },
-     {
-      "name": "database",
-      "type": "String"
-     }
-    ],
-    "computedFields": [
-     {
-      "name": "self",
-      "type": "Ref",
-      "ofType": {
-       "type": "Site"
-      }
-     },
-     {
-      "name": "id",
-      "type": "String",
-      "description": "Unique identifier for site"
-     },
-     {
-      "name": "domains",
-      "type": "DomainCollection",
-      "description": "List of all custom domains added to the given site"
-     },
-     {
-      "name": "collections",
-      "type": "CollectionCollection",
-      "description": "Groupings of Items and define the schema or structure of the custom data stored in those Items"
-     },
-     {
+  "dependencies": [],
+  "environment": [
+    {
+      "name": "API_TOKEN",
+      "description": "The Api Token"
+    }
+  ],
+  "endpoints": [
+    {
       "name": "webhooks",
-      "type": "WebhookCollection",
-      "description": "A webhooks collection"
-     }
-    ],
-    "actions": [],
-    "events": [
+      "type": "https",
+      "description": "Webhooks received from Webflow",
+      "options": {}
+    }
+  ],
+  "schema": {
+    "imports": [],
+    "types": [
       {
-        "name": "formReceived",
-        "params": [
+        "name": "Root",
+        "fields": [
           {
+            "name": "sites",
+            "type": "SiteCollection"
+          }
+        ],
+        "computedFields": [],
+        "actions": [],
+        "events": []
+      },
+      {
+        "name": "SiteCollection",
+        "fields": [],
+        "computedFields": [
+          {
+            "name": "one",
+            "type": "Site",
+            "description": "A Webflow site",
+            "params": [
+              {
+                "name": "id",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "name": "items",
+            "type": "List",
+            "ofType": {
+              "type": "Site"
+            },
+            "description": "List of all sites the provided access token is able to access."
+          }
+        ],
+        "actions": [],
+        "events": []
+      },
+      {
+        "name": "Site",
+        "fields": [
+          {
+            "name": "createdOn",
+            "type": "String",
+            "description": "Date the site was created"
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "description": "Name given to site"
+          },
+          {
+            "name": "shortName",
+            "type": "String",
+            "description": "Slugified version of name"
+          },
+          {
+            "name": "lastPublished",
+            "type": "String",
+            "description": "Date site was last published"
+          },
+          {
+            "name": "previewUrl",
+            "type": "String",
+            "description": "URL of a generated image for the given site"
+          },
+          {
+            "name": "timezone",
+            "type": "String",
+            "description": "Site timezone set under Site Settings"
+          },
+          {
+            "name": "database",
+            "type": "String"
+          }
+        ],
+        "computedFields": [
+          {
+            "name": "self",
+            "type": "Ref",
+            "ofType": {
+              "type": "Site"
+            }
+          },
+          {
+            "name": "id",
+            "type": "String",
+            "description": "Unique identifier for site"
+          },
+          {
+            "name": "domains",
+            "type": "DomainCollection",
+            "description": "List of all custom domains added to the given site"
+          },
+          {
+            "name": "collections",
+            "type": "CollectionCollection",
+            "description": "Groupings of Items and define the schema or structure of the custom data stored in those Items"
+          },
+          {
+            "name": "webhooks",
+            "type": "WebhookCollection",
+            "description": "A webhooks collection"
+          }
+        ],
+        "actions": [],
+        "events": [
+          {
+            "name": "formReceived",
+            "params": [
+              {
                 "name": "name",
                 "type": "String"
               },
@@ -145,366 +145,368 @@
               }
             ],
             "type": "Void"
+          }
+        ]
+      },
+      {
+        "name": "DomainCollection",
+        "fields": [],
+        "computedFields": [
+          {
+            "name": "one",
+            "type": "Domain",
+            "description": "A custom domain",
+            "params": [
+              {
+                "name": "id",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "name": "items",
+            "type": "List",
+            "ofType": {
+              "type": "Domain"
+            },
+            "description": "All custom domains"
+          }
+        ],
+        "actions": [],
+        "events": []
+      },
+      {
+        "name": "Domain",
+        "fields": [
+          {
+            "name": "name",
+            "type": "String",
+            "description": "The domain name"
+          }
+        ],
+        "computedFields": [
+          {
+            "name": "self",
+            "type": "Ref",
+            "ofType": {
+              "type": "Domain"
+            }
+          },
+          {
+            "name": "id",
+            "type": "String",
+            "description": "Unique identifier for site"
+          }
+        ],
+        "actions": [],
+        "events": []
+      },
+      {
+        "name": "CollectionCollection",
+        "fields": [],
+        "computedFields": [
+          {
+            "name": "one",
+            "type": "Collection",
+            "params": [
+              {
+                "name": "id",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "name": "items",
+            "type": "List",
+            "ofType": {
+              "type": "Collection"
+            }
+          }
+        ],
+        "actions": [],
+        "events": []
+      },
+      {
+        "name": "Collection",
+        "fields": [
+          {
+            "name": "lastUpdated",
+            "type": "String",
+            "description": "Collection was last updated"
+          },
+          {
+            "name": "createdOn",
+            "type": "String",
+            "description": "Collection was created"
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "description": "Name given to Collection"
+          },
+          {
+            "name": "slug",
+            "type": "String",
+            "description": "Slug of Collection in Site URL structure"
+          },
+          {
+            "name": "singularName",
+            "type": "String",
+            "description": "The name of one Item in Collection"
+          }
+        ],
+        "computedFields": [
+          {
+            "name": "self",
+            "type": "Ref",
+            "ofType": {
+              "type": "Collection"
+            }
+          },
+          {
+            "name": "id",
+            "type": "String",
+            "description": "The unique identifier for the Collection"
+          },
+          {
+            "name": "fields",
+            "type": "String",
+            "description": "See full Fields section"
+          },
+          {
+            "name": "items",
+            "type": "ItemCollection"
+          }
+        ],
+        "actions": [
+          {
+            "name": "createCollectionItem",
+            "type": "Int",
+            "params": [
+              {
+                "name": "fields",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "name": "createLiveCollectionItem",
+            "type": "Int",
+            "params": [
+              {
+                "name": "fields",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "name": "updateCollectionItem",
+            "type": "Int",
+            "params": [
+              {
+                "name": "fields",
+                "type": "String"
+              },
+              {
+                "name": "id",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "name": "updateLiveCollectionItem",
+            "type": "Int",
+            "params": [
+              {
+                "name": "fields",
+                "type": "String"
+              },
+              {
+                "name": "id",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "name": "removeCollectionItem",
+            "type": "Int",
+            "params": [
+              {
+                "name": "id",
+                "type": "String"
+              }
+            ]
+          }
+        ],
+        "events": []
+      },
+      {
+        "name": "ItemCollection",
+        "fields": [],
+        "computedFields": [
+          {
+            "name": "one",
+            "type": "Item",
+            "params": [
+              {
+                "name": "id",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "name": "page",
+            "type": "ItemPage",
+            "params": [
+              {
+                "name": "offset",
+                "type": "Int"
+              },
+              {
+                "name": "limit",
+                "type": "Int"
+              }
+            ]
+          }
+        ],
+        "actions": [],
+        "events": []
+      },
+      {
+        "name": "ItemPage",
+        "fields": [
+          {
+            "name": "items",
+            "type": "List",
+            "ofType": {
+              "type": "Item"
+            }
+          },
+          {
+            "name": "next",
+            "type": "Ref",
+            "ofType": {
+              "type": "ItemPage"
+            }
+          }
+        ],
+        "computedFields": [],
+        "actions": [],
+        "events": []
+      },
+      {
+        "name": "Item",
+        "fields": [],
+        "computedFields": [
+          {
+            "name": "self",
+            "type": "Ref",
+            "ofType": {
+              "type": "Item"
+            }
+          },
+          {
+            "name": "id",
+            "type": "String",
+            "description": "Unique identifier for the Item"
+          },
+          {
+            "name": "fields",
+            "type": "String",
+            "description": "All data of the item"
+          }
+        ],
+        "actions": [],
+        "events": []
+      },
+      {
+        "name": "WebhookCollection",
+        "fields": [],
+        "computedFields": [
+          {
+            "name": "one",
+            "type": "Webhook",
+            "description": "A custom webhook",
+            "params": [
+              {
+                "name": "id",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "name": "items",
+            "type": "List",
+            "ofType": {
+              "type": "Webhook"
+            },
+            "description": "All custom webhooks"
+          }
+        ],
+        "actions": [],
+        "events": []
+      },
+      {
+        "name": "Webhook",
+        "fields": [
+          {
+            "name": "triggerType",
+            "type": "String",
+            "description": "Which action the webhook is listening for"
+          },
+          {
+            "name": "triggerId",
+            "type": "String",
+            "description": "Unique identifier for trigger"
+          },
+          {
+            "name": "site",
+            "type": "String",
+            "description": "Unique identifier for site"
+          },
+          {
+            "name": "lastUsed",
+            "type": "String",
+            "description": "Date trigger was last used"
+          },
+          {
+            "name": "createdOn",
+            "type": "String",
+            "description": "Date trigger was created"
+          }
+        ],
+        "computedFields": [
+          {
+            "name": "self",
+            "type": "Ref",
+            "ofType": {
+              "type": "Webhook"
+            }
+          },
+          {
+            "name": "id",
+            "type": "String",
+            "description": "Unique identifier for the Webhook"
+          }
+        ],
+        "actions": [],
+        "events": []
       }
     ]
-   },
-   {
-    "name": "DomainCollection",
-    "fields": [],
-    "computedFields": [
-     {
-      "name": "one",
-      "type": "Domain",
-      "description": "A custom domain",
-      "params": [
-       {
-        "name": "id",
-        "type": "String"
-       }
-      ]
-     },
-     {
-      "name": "items",
-      "type": "List",
-      "ofType": {
-       "type": "Domain"
-      },
-      "description": "All custom domains"
-     }
-    ],
-    "actions": [],
-    "events": []
-   },
-   {
-    "name": "Domain",
-    "fields": [
-     {
-      "name": "name",
-      "type": "String",
-      "description": "The domain name"
-     }
-    ],
-    "computedFields": [
-     {
-      "name": "self",
-      "type": "Ref",
-      "ofType": {
-       "type": "Domain"
-      }
-     },
-     {
-      "name": "id",
-      "type": "String",
-      "description": "Unique identifier for site"
-     }
-    ],
-    "actions": [],
-    "events": []
-   },
-   {
-    "name": "CollectionCollection",
-    "fields": [],
-    "computedFields": [
-     {
-      "name": "one",
-      "type": "Collection",
-      "params": [
-       {
-        "name": "id",
-        "type": "String"
-       }
-      ]
-     },
-     {
-      "name": "items",
-      "type": "List",
-      "ofType": {
-       "type": "Collection"
-      }
-     }
-    ],
-    "actions": [],
-    "events": []
-   },
-   {
-    "name": "Collection",
-    "fields": [
-     {
-      "name": "lastUpdated",
-      "type": "String",
-      "description": "Collection was last updated"
-     },
-     {
-      "name": "createdOn",
-      "type": "String",
-      "description": "Collection was created"
-     },
-     {
-      "name": "name",
-      "type": "String",
-      "description": "Name given to Collection"
-     },
-     {
-      "name": "slug",
-      "type": "String",
-      "description": "Slug of Collection in Site URL structure"
-     },
-     {
-      "name": "singularName",
-      "type": "String",
-      "description": "The name of one Item in Collection"
-     }
-    ],
-    "computedFields": [
-     {
-      "name": "self",
-      "type": "Ref",
-      "ofType": {
-       "type": "Collection"
-      }
-     },
-     {
-      "name": "id",
-      "type": "String",
-      "description": "The unique identifier for the Collection"
-     },
-     {
-      "name": "fields",
-      "type": "String",
-      "description": "See full Fields section"
-     },
-     {
-      "name": "items",
-      "type": "ItemCollection"
-     }
-    ],
-    "actions": [
-     {
-      "name": "createCollectionItem",
-      "type": "Int",
-      "params": [
-       {
-        "name": "fields",
-        "type": "String"
-       }
-      ]
-     },
-     {
-      "name": "createLiveCollectionItem",
-      "type": "Int",
-      "params": [
-       {
-        "name": "fields",
-        "type": "String"
-       }
-      ]
-     },
-     {
-      "name": "updateCollectionItem",
-      "type": "Int",
-      "params": [
-       {
-        "name": "fields",
-        "type": "String"
-       },
-       {
-        "name": "id",
-        "type": "String"
-       }
-      ]
-     },
-     {
-      "name": "updateLiveCollectionItem",
-      "type": "Int",
-      "params": [
-       {
-        "name": "fields",
-        "type": "String"
-       },
-       {
-        "name": "id",
-        "type": "String"
-       }
-      ]
-     },
-     {
-      "name": "removeCollectionItem",
-      "type": "Int",
-      "params": [
-       {
-        "name": "id",
-        "type": "String"
-       }
-      ]
-     }
-    ],
-    "events": []
-   },
-   {
-    "name": "ItemCollection",
-    "fields": [],
-    "computedFields": [
-     {
-      "name": "one",
-      "type": "Item",
-      "params": [
-       {
-        "name": "id",
-        "type": "String"
-       }
-      ]
-     },
-     {
-      "name": "page",
-      "type": "ItemPage",
-      "params": [
-       {
-        "name": "offset",
-        "type": "Int"
-       },
-       {
-        "name": "limit",
-        "type": "Int"
-       }
-      ]
-     }
-    ],
-    "actions": [],
-    "events": []
-   },
-   {
-    "name": "ItemPage",
-    "fields": [
-     {
-      "name": "items",
-      "type": "List",
-      "ofType": {
-       "type": "Item"
-      }
-     },
-     {
-      "name": "next",
-      "type": "Ref",
-      "ofType": {
-       "type": "ItemPage"
-      }
-     }
-    ],
-    "computedFields": [],
-    "actions": [],
-    "events": []
-   },
-   {
-    "name": "Item",
-    "fields": [],
-    "computedFields": [
-     {
-      "name": "self",
-      "type": "Ref",
-      "ofType": {
-       "type": "Item"
-      }
-     },
-     {
-      "name": "id",
-      "type": "String",
-      "description": "Unique identifier for the Item"
-     },
-     {
-      "name": "fields",
-      "type": "String",
-      "description": "All data of the item"
-     }
-    ],
-    "actions": [],
-    "events": []
-   },
-   {
-    "name": "WebhookCollection",
-    "fields": [],
-    "computedFields": [
-     {
-      "name": "one",
-      "type": "Webhook",
-      "description": "A custom webhook",
-      "params": [
-       {
-        "name": "id",
-        "type": "String"
-       }
-      ]
-     },
-     {
-      "name": "items",
-      "type": "List",
-      "ofType": {
-       "type": "Webhook"
-      },
-      "description": "All custom webhooks"
-     }
-    ],
-    "actions": [],
-    "events": []
-   },
-   {
-    "name": "Webhook",
-    "fields": [
-     {
-      "name": "triggerType",
-      "type": "String",
-      "description": "Which action the webhook is listening for"
-     },
-     {
-      "name": "triggerId",
-      "type": "String",
-      "description": "Unique identifier for trigger"
-     },
-     {
-      "name": "site",
-      "type": "String",
-      "description": "Unique identifier for site"
-     },
-     {
-      "name": "lastUsed",
-      "type": "String",
-      "description": "Date trigger was last used"
-     },
-     {
-      "name": "createdOn",
-      "type": "String",
-      "description": "Date trigger was created"
-     }
-    ],
-    "computedFields": [
-     {
-      "name": "self",
-      "type": "Ref",
-      "ofType": {
-       "type": "Item"
-      }
-     },
-     {
-      "name": "id",
-      "type": "String",
-      "description": "Unique identifier for the Webhook"
-     }
-    ],
-    "actions": [],
-    "events": []
-   }
-  ]
- },
- "expressions": [],
- "database": [],
- "tests": [
-  {
-   "name": "access",
-   "description": "The driver can access the Webflow API and retrieve data"
   },
-  {
-   "name": "webhooks",
-   "description": "The driver can receive webhooks from Webflow"
-  }
- ],
- "isDriver": false
+  "expressions": [],
+  "database": [],
+  "tests": [
+    {
+      "name": "access",
+      "description": "The driver can access the Webflow API and retrieve data"
+    },
+    {
+      "name": "webhooks",
+      "description": "The driver can receive webhooks from Webflow"
+    }
+  ],
+  "isDriver": false,
+  "id": "8f8f6295-77ef-4897-9981-dd83bc2584fb",
+  "files": []
 }
